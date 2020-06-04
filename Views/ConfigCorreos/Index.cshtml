@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SERIESREMINDER.Models.ConfigCorreo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.host)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.puerto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minutos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contrasena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.host)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.puerto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.minutos)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDConfig }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDConfig }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDConfig })
+        </td>
+    </tr>
+}
+
+</table>

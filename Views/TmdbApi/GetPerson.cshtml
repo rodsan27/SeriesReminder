@@ -1,0 +1,43 @@
+﻿@model SERIESREMINDER.Models.TheMovieDb
+<style>
+    body {
+        background-color: #000;
+    }
+
+    #apiDiv {
+        padding-left: 20px;
+        display: inline-block;
+        width: 95%;
+        text-align: justify;
+    }
+
+        #apiDiv h4 {
+            margin: 10px 0;
+        }
+
+        #apiDiv .biography img {
+            float: left;
+            padding-right: 10px;
+        }
+
+        #apiDiv .return {
+            text-align: center;
+        }
+
+            #apiDiv .return a {
+                color: #00e8ff;
+                font-size: 20px;
+                text-decoration: underline;
+            }
+</style>
+
+<div id="apiDiv">
+    <div class="return"><a href="@Url.Action("Index", "TmdbApi")">Return</a></div>
+    <h4>@Model.name</h4>
+    <p class="biography"><img src="@Model.profile_path" />@Model.biography</p>
+    <p>Birthday: @Model.birthday</p>
+    <p>Place of Birth: @Model.place_of_birth</p>
+    <p>Also Known as: @Model.also_known_as</p>
+    
+</div>
+

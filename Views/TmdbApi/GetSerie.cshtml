@@ -1,0 +1,36 @@
+﻿@model SERIESREMINDER.Models.TheMovieDbSeries
+
+<link rel="stylesheet" type="text/css" href="~/Content/css/Style.css" />
+<div id="apiDivSerie">
+    <div class="return"><a href="@Url.Action("Index", "TmdbApi")">Regresar</a></div>
+    <div class="container">
+        <div class="col-md-12">
+            <h4>@Model.name</h4>
+            <p class="biography"><img src="@Model.poster_path" />@Model.overview</p>
+            <p id="idSerie">ID: @Model.id</p>
+            <p>No. Temporadas: @Model.number_of_seasons</p>
+            <p>Ultima fecha al aire: @Model.last_air_date</p>
+            <p>Proximo Episodio: @Model.next_episode_to_air</p>
+            <p>Estado: @Model.status</p>
+            @Html.ActionLink(
+    "Recordar",                                                  // linkText
+    "Create",                                    // actionName
+    "TmdbApi",                                                   // controllerName
+    new
+         {                                                     // routeValues
+        IDSerie = Model.id,
+        nombreSerie = Model.name,
+        resumenSerie = Model.overview,
+        posterPath = Model.poster_path,
+        Estado = Model.status,
+        cantTemporadas = Model.number_of_seasons,
+        ultimoEpisodio = Model.last_air_date,
+        proximoEpisodio = Model.next_episode_to_air
+    },
+        new { @class = "btn btn-primary" }                   // htmlAttributes
+
+)
+        </div>
+    </div>
+</div>
+

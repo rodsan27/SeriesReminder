@@ -1,0 +1,48 @@
+﻿@model SERIESREMINDER.Models.PerfilUsuario
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Series Reminder</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.Usuario)</td>
+                <td>@Html.TextBoxFor(a => a.Usuario)</td>
+                <td>@Html.ValidationMessageFor(a => a.Usuario)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.Contrasena)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.Contrasena)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.Contrasena)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}  

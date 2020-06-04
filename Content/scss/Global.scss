@@ -1,0 +1,164 @@
+﻿/*********VARIABLES GLOBALES*************/
+$color-fondo: #fff;
+$color-titulo: #0a0a0a;
+$color-parrafo: #ccc;
+$color-etiqueta: #808080;
+$color-paginado: #f2f2f2;
+$color-borde: #c0c0c0;
+$color-hover-paginado: #fefefe;
+$color-activado: #616161;
+$color-regresar: #011314;
+/****************ESTILOS****************/
+body
+{
+    background-color:$color-fondo;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+#apiDiv {
+    padding-left: 20px;
+
+    input {
+        font-size: 20px;
+        color: $color-titulo;
+    }
+
+    button {
+        font-size: 20px;
+        color: $color-fondo;
+    }
+
+    h4 {
+        margin: 10px 0;
+        color: $color-titulo;
+        font-size: 20px;
+    }
+
+    .textAlignCenter {
+        text-align: center;
+
+        img {
+            display: none;
+            width: 100px;
+        }
+    }
+
+    #message {
+        padding-top: 10px;
+
+        .resultDiv {
+            background: $color-fondo;
+            display: inline-block;
+
+            p {
+                color: $color-fondo;
+                display: inline-block;
+                width: 95%;
+                padding: 10px;
+                border-bottom: double 2px $color-parrafo;
+            }
+
+            .result {
+                width: 23%;
+                height: 240px;
+                padding: 6px;
+                float: left;
+                text-align: center;
+                cursor: pointer;
+
+                img {
+                    width: 50%;
+                }
+
+                p {
+                    margin: 0;
+
+                    a {
+                        color: $color-etiqueta;
+                        text-decoration: none;
+                        font-size: 20px;
+                        height: 100px;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    form span {
+        color: red;
+        font-size: 20px;
+    }
+}
+
+.pagingDiv {
+    background: $color-paginado;
+
+    > a {
+        display: inline-block;
+        padding: 0px 9px;
+        margin-right: 4px;
+        border-radius: 3px;
+        border: solid 1px $color-borde;
+        background: $color-paginado;
+        box-shadow: inset 0px 1px 0px rgba(255,255,255, .8), 0px 1px 3px rgba(0,0,0, .1);
+        font-size: .875em;
+        font-weight: bold;
+        text-decoration: none;
+        color: #717171;
+        text-shadow: 0px 1px 0px rgba(255,255,255, 1)
+    }
+
+    > a:hover {
+        background: $color-hover-paginado;
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color-hover-paginado), to($color-paginado));
+        background: -moz-linear-gradient(0% 0% 270deg,$color-hover-paginado, $color-paginado);
+    }
+
+    > a.active {
+        border: none;
+        background: $color-activado;
+        box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .8);
+        color: $color-paginado;
+        text-shadow: 0px 0px 3px rgba(0,0,0, .5);
+    }
+}
+
+#apiDivSerie {
+    padding-left: 20px;
+    display: inline-block;
+    width: 95%;
+    text-align: justify;
+
+    h4 {
+        margin: 10px 0;
+    }
+
+    .biography img {
+        float: left;
+        padding-right: 10px;
+        width: 20%;
+    }
+
+    .return {
+        text-align: center;
+
+        a {
+            color: $color-regresar;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+    }
+}
+
+.seriesDia{
+
+    img{
+        width:60%;
+    }
+}

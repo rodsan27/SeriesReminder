@@ -1,0 +1,35 @@
+﻿@model SERIESREMINDER.Models.TheMovieDbSeries
+@using SERIESREMINDER.Class;
+
+<link rel="stylesheet" type="text/css" href="~/Content/css/Style.css" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="apiDiv">
+                @{ ViewBag.Title = "Recordatorio Series";}
+                <h2>The Movie Database API</h2>
+                <h4>Busqueda</h4>
+                @using (Html.BeginForm())
+                {
+                    @Html.EditorFor(model => model.searchText)
+                    <button id="submit" class="btn btn-primary">Buscar</button>
+                    @Html.ValidationMessageFor(model => model.searchText)
+                }
+            </div>
+        </div>
+    </div>
+    <div id="message">
+        @(new HtmlString(ViewBag.Result))
+
+    </div>
+    <div class="pagingDiv">
+        @{
+            PagingInfo pagingInfo = (PagingInfo)ViewBag.Paging;
+            if (pagingInfo != null)
+            {
+                @Html.PageLinks((PagingInfo)ViewBag.Paging, x => Url.Action("Index", "TmdbApi", new { seriesName = Model.searchText, page = x }))
+
+            }
+        }
+    </div>
+</div>

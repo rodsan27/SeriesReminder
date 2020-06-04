@@ -1,0 +1,66 @@
+﻿@model SERIESREMINDER.Models.ConfigCorreo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ConfigCorreo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.host)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.host)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.puerto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.puerto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.minutos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.minutos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDConfig }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

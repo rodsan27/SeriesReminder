@@ -1,0 +1,104 @@
+﻿/*********VARIABLES GLOBALES*************/
+/****************ESTILOS****************/
+body {
+  background-color: #fff; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff; }
+
+#apiDiv {
+  padding-left: 20px; }
+  #apiDiv input {
+    font-size: 20px;
+    color: #0a0a0a; }
+  #apiDiv button {
+    font-size: 20px;
+    color: #fff; }
+  #apiDiv h4 {
+    margin: 10px 0;
+    color: #0a0a0a;
+    font-size: 20px; }
+  #apiDiv .textAlignCenter {
+    text-align: center; }
+    #apiDiv .textAlignCenter img {
+      display: none;
+      width: 100px; }
+  #apiDiv #message {
+    padding-top: 10px; }
+    #apiDiv #message .resultDiv {
+      background: #fff;
+      display: inline-block; }
+      #apiDiv #message .resultDiv p {
+        color: #fff;
+        display: inline-block;
+        width: 95%;
+        padding: 10px;
+        border-bottom: double 2px #ccc; }
+      #apiDiv #message .resultDiv .result {
+        width: 23%;
+        height: 240px;
+        padding: 6px;
+        float: left;
+        text-align: center;
+        cursor: pointer; }
+        #apiDiv #message .resultDiv .result img {
+          width: 50%; }
+        #apiDiv #message .resultDiv .result p {
+          margin: 0; }
+          #apiDiv #message .resultDiv .result p a {
+            color: #808080;
+            text-decoration: none;
+            font-size: 20px;
+            height: 100px; }
+          #apiDiv #message .resultDiv .result p a:hover {
+            text-decoration: underline; }
+  #apiDiv form span {
+    color: red;
+    font-size: 20px; }
+
+.pagingDiv {
+  background: #f2f2f2; }
+  .pagingDiv > a {
+    display: inline-block;
+    padding: 0px 9px;
+    margin-right: 4px;
+    border-radius: 3px;
+    border: solid 1px #c0c0c0;
+    background: #f2f2f2;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.8), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: .875em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #717171;
+    text-shadow: 0px 1px 0px white; }
+  .pagingDiv > a:hover {
+    background: #fefefe;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fefefe), to(#f2f2f2));
+    background: -moz-linear-gradient(0% 0% 270deg, #fefefe, #f2f2f2); }
+  .pagingDiv > a.active {
+    border: none;
+    background: #616161;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.8);
+    color: #f2f2f2;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5); }
+
+#apiDivSerie {
+  padding-left: 20px;
+  display: inline-block;
+  width: 95%;
+  text-align: justify; }
+  #apiDivSerie h4 {
+    margin: 10px 0; }
+  #apiDivSerie .biography img {
+    float: left;
+    padding-right: 10px;
+    width: 20%; }
+  #apiDivSerie .return {
+    text-align: center; }
+    #apiDivSerie .return a {
+      color: #011314;
+      font-size: 18px;
+      text-decoration: underline; }
+
+.seriesDia img {
+  width: 60%; }

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SeriesReminderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatCorreos">
+          <Key>
+            <PropertyRef Name="IDCorreo" />
+          </Key>
+          <Property Name="IDCorreo" Type="int" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatSeries">
+          <Key>
+            <PropertyRef Name="IDSerie" />
+          </Key>
+          <Property Name="IDSerie" Type="int" Nullable="false" />
+          <Property Name="nombreSerie" Type="varchar" MaxLength="600" Nullable="false" />
+          <Property Name="resumenSerie" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="posterPath" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantTemporadas" Type="int" Nullable="false" />
+          <Property Name="ultimoEpisodio" Type="date" Nullable="false" />
+          <Property Name="proximoEpisodio" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfigCorreo">
+          <Key>
+            <PropertyRef Name="IDConfig" />
+          </Key>
+          <Property Name="IDConfig" Type="int" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="host" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="puerto" Type="int" Nullable="false" />
+          <Property Name="hora" Type="int" Nullable="false" />
+          <Property Name="minutos" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PerfilUsuario">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="actualizarFechaSeries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSerie" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+          <Parameter Name="ultimoEpisodio" Type="date" Mode="In" />
+          <Parameter Name="proximoEpisodio" Type="date" Mode="In" />
+        </Function>
+        <Function Name="credencialesCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cuerpoCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Body" Type="nvarchar(max)" Mode="InOut" />
+        </Function>
+        <Function Name="listaCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="seriesDia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametro" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="SeriesReminderModelStoreContainer">
+          <EntitySet Name="CatCorreos" EntityType="Self.CatCorreos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatSeries" EntityType="Self.CatSeries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfigCorreo" EntityType="Self.ConfigCorreo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilUsuario" EntityType="Self.PerfilUsuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SeriesReminderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatCorreo">
+          <Key>
+            <PropertyRef Name="IDCorreo" />
+          </Key>
+          <Property Name="IDCorreo" Type="Int32" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatSerie">
+          <Key>
+            <PropertyRef Name="IDSerie" />
+          </Key>
+          <Property Name="IDSerie" Type="Int32" Nullable="false" />
+          <Property Name="nombreSerie" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resumenSerie" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="posterPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantTemporadas" Type="Int32" Nullable="false" />
+          <Property Name="ultimoEpisodio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="proximoEpisodio" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="SeriesReminderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatCorreos" EntityType="Self.CatCorreo" />
+          <EntitySet Name="CatSeries1" EntityType="SeriesReminderModel.CatSerie" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SeriesReminderModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SeriesReminderModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="cuerpoCorreo">
+          <Parameter Name="Body" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="listaCorreo" ReturnType="Collection(String)">
+          </FunctionImport>
+          <FunctionImport Name="credencialesCorreo" ReturnType="Collection(SeriesReminderModel.credencialesCorreo_Result1)" />
+          <EntitySet Name="ConfigCorreos" EntityType="SeriesReminderModel.ConfigCorreo" />
+          <FunctionImport Name="seriesDia" ReturnType="Collection(SeriesReminderModel.seriesDia_Result1)">
+          <Parameter Name="parametro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="actualizarFechaSeries">
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="ultimoEpisodio" Mode="In" Type="DateTime" />
+            <Parameter Name="proximoEpisodio" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="PerfilUsuarios" EntityType="SeriesReminderModel.PerfilUsuario" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="seriesDia_Result">
+          <Property Type="Int32" Name="IDSerie" Nullable="false" />
+          <Property Type="String" Name="nombreSerie" Nullable="false" MaxLength="600" />
+          <Property Type="String" Name="resumenSerie" Nullable="false" MaxLength="5000" />
+          <Property Type="String" Name="posterPath" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="cantTemporadas" Nullable="false" />
+          <Property Type="DateTime" Name="ultimoEpisodio" Nullable="false" />
+          <Property Type="DateTime" Name="proximoEpisodio" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="credencialesCorreo_Result">
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Contrasena" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Host" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Port" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="credencialesCorreo_Result1">
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Contrasena" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Host" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Port" Nullable="true" />
+          <Property Type="Int32" Name="Hora" Nullable="true" />
+          <Property Type="Int32" Name="Minutos" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="ConfigCorreo">
+          <Key>
+            <PropertyRef Name="IDConfig" />
+          </Key>
+          <Property Name="IDConfig" Type="Int32" Nullable="false" />
+          <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="host" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="puerto" Type="Int32" Nullable="false" />
+          <Property Name="hora" Type="Int32" Nullable="false" />
+          <Property Name="minutos" Type="Int32" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="seriesDia_Result1">
+          <Property Type="Int32" Name="IDSerie" Nullable="false" />
+          <Property Type="String" Name="nombreSerie" Nullable="false" MaxLength="600" />
+          <Property Type="String" Name="resumenSerie" Nullable="false" MaxLength="5000" />
+          <Property Type="String" Name="posterPath" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="cantTemporadas" Nullable="false" />
+          <Property Type="DateTime" Name="ultimoEpisodio" Nullable="false" />
+          <Property Type="DateTime" Name="proximoEpisodio" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="PerfilUsuario">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SeriesReminderModelStoreContainer" CdmEntityContainer="SeriesReminderEntities">
+          <EntitySetMapping Name="CatCorreos">
+            <EntityTypeMapping TypeName="SeriesReminderModel.CatCorreo">
+              <MappingFragment StoreEntitySet="CatCorreos">
+                <ScalarProperty Name="IDCorreo" ColumnName="IDCorreo" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatSeries1">
+            <EntityTypeMapping TypeName="SeriesReminderModel.CatSerie">
+              <MappingFragment StoreEntitySet="CatSeries">
+                <ScalarProperty Name="proximoEpisodio" ColumnName="proximoEpisodio" />
+                <ScalarProperty Name="ultimoEpisodio" ColumnName="ultimoEpisodio" />
+                <ScalarProperty Name="cantTemporadas" ColumnName="cantTemporadas" />
+                <ScalarProperty Name="IDSerie" ColumnName="IDSerie" />
+                <ScalarProperty Name="nombreSerie" ColumnName="nombreSerie" />
+                <ScalarProperty Name="resumenSerie" ColumnName="resumenSerie" />
+                <ScalarProperty Name="posterPath" ColumnName="posterPath" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="cuerpoCorreo" FunctionName="SeriesReminderModel.Store.cuerpoCorreo" />
+          <FunctionImportMapping FunctionImportName="listaCorreo" FunctionName="SeriesReminderModel.Store.listaCorreo" />
+          <FunctionImportMapping FunctionImportName="credencialesCorreo" FunctionName="SeriesReminderModel.Store.credencialesCorreo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SeriesReminderModel.credencialesCorreo_Result1">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Minutos" ColumnName="Minutos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ConfigCorreos">
+            <EntityTypeMapping TypeName="SeriesReminderModel.ConfigCorreo">
+              <MappingFragment StoreEntitySet="ConfigCorreo">
+                <ScalarProperty Name="minutos" ColumnName="minutos" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="puerto" ColumnName="puerto" />
+                <ScalarProperty Name="host" ColumnName="host" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="IDConfig" ColumnName="IDConfig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="seriesDia" FunctionName="SeriesReminderModel.Store.seriesDia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SeriesReminderModel.seriesDia_Result1">
+                <ScalarProperty Name="IDSerie" ColumnName="IDSerie" />
+                <ScalarProperty Name="nombreSerie" ColumnName="nombreSerie" />
+                <ScalarProperty Name="resumenSerie" ColumnName="resumenSerie" />
+                <ScalarProperty Name="posterPath" ColumnName="posterPath" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cantTemporadas" ColumnName="cantTemporadas" />
+                <ScalarProperty Name="ultimoEpisodio" ColumnName="ultimoEpisodio" />
+                <ScalarProperty Name="proximoEpisodio" ColumnName="proximoEpisodio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="actualizarFechaSeries" FunctionName="SeriesReminderModel.Store.actualizarFechaSeries" />
+          <EntitySetMapping Name="PerfilUsuarios">
+            <EntityTypeMapping TypeName="SeriesReminderModel.PerfilUsuario">
+              <MappingFragment StoreEntitySet="PerfilUsuario">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
